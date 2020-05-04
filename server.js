@@ -27,7 +27,7 @@ const jsonErrorHandler = async (err, req, res, next) => {
   var status = err.status;
   res.status(status).send({message: "Bad request"});
 }
-app.use(jsonErrorHandler)
+app.use(jsonErrorHandler) 
 /* Error handler end*/
 
 /* Routes config */
