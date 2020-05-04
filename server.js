@@ -3,23 +3,23 @@ var app = express();
 require('dotenv').config();
 var bodyParser = require('body-parser');
 
-/*Security dependencies*/
-const helmet = require('helmet');
-const csp = require('content-security-policy');
-const hidePoweredBy = require('hide-powered-by');
-const hpp = require('hpp');
-const cors = require('cors')
-const globalCSP = csp.getCSP(csp.STARTER_OPTIONS);
-app.use(globalCSP);
-app.use(helmet());
-app.use(helmet.referrerPolicy({ policy: 'same-origin' }))
-app.use(hidePoweredBy());
-app.use(hpp());
+// /*Security dependencies*/
+// const helmet = require('helmet');
+// const csp = require('content-security-policy');
+// const hidePoweredBy = require('hide-powered-by');
+// const hpp = require('hpp');
+// const cors = require('cors')
+// const globalCSP = csp.getCSP(csp.STARTER_OPTIONS);
+// app.use(globalCSP);
+// app.use(helmet());
+// app.use(helmet.referrerPolicy({ policy: 'same-origin' }))
+// app.use(hidePoweredBy());
+// app.use(hpp());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json({strict:false,extended: true}));
-app.use(cors({origin: 'segurosfalabella.com'}))
-app.disable('x-powered-by');
-/* Security dependencies end*/
+// app.use(cors({origin: 'segurosfalabella.com'}))
+// app.disable('x-powered-by');
+// /* Security dependencies end*/
 
 /* Error handler*/
 const jsonErrorHandler = async (err, req, res, next) => {
