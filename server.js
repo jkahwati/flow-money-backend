@@ -30,12 +30,13 @@ const jsonErrorHandler = async (err, req, res, next) => {
 app.use(jsonErrorHandler) 
 /* Error handler end*/
 
+
 /* Routes config */
 const healthRoute = require('./src/routes/health.routes');
 app.use(healthRoute);
 /* Routes config end */
 
-app.listen(3000, function () {
+app.listen(process.env.PORT  || 3000, function () {
   console.log('OFFER-MANAGER is running on port 3000');
 });
 
