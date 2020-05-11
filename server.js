@@ -33,7 +33,9 @@ app.use(jsonErrorHandler)
 
 /* Routes config */
 const healthRoute = require('./src/routes/health.routes');
+const loginRoute = require('./src/routes/login.routes');
 app.use(healthRoute);
+app.use(loginRoute);
 /* Routes config end */
 
 app.listen(process.env.PORT  || 3000, function () {
