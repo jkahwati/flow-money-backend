@@ -16,4 +16,16 @@ router.post('/login', (req,res) => {
     }
 });
 
+router.post('/sign-up', (req,res) => {
+
+    var loginService = new LoginService();
+    var user =  new User(req.body);
+    var response = loginService.signUp(user);
+    if (response.success) {
+        res.status(200).send(response);
+    } else {
+        res.status(422).send(response);
+    }
+});
+
 module.exports = router;

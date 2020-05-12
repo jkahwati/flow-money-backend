@@ -16,4 +16,14 @@ module.exports =  class LoginService {
         }
     }
 
+    signUp(user) {
+        var userRepository = new UserRepository();
+        if (userRepository.exist(user)) {
+            return {success: false, message: "User already exist"};
+        } else {
+            userRepository.sigUp(user);
+            return {success: true, message: "User successfully registered"};
+        }
+    }
+
 }

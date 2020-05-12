@@ -38,7 +38,7 @@ app.use(healthRoute);
 app.use(loginRoute);
 /* Routes config end */
 
-app.listen(process.env.PORT  || 3000, function () {
+app.listen(process.env.PORT  || 3001, function () {
   console.log('OFFER-MANAGER is running on port 3000');
 });
 

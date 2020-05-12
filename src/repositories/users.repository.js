@@ -11,6 +11,9 @@ module.exports = class UserRepository {
             return (userDb.username === user.username && userDb.password === user.password);
         })
     }
+    sigUp(user) {
+        users.push(user);
+    }
 
 
 
