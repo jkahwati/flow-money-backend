@@ -39,7 +39,7 @@ app.use(loginRoute);
 /* Routes config end */
 
 app.listen(process.env.PORT  || 3001, function () {
-  console.log('OFFER-MANAGER is running on port 3000');
+  console.log('FLOW-MONEY is running on port 3001');
 });
 
 module.exports = app;
