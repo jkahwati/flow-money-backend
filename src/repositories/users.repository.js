@@ -1,3 +1,4 @@
+const accounts = require('../db/accounts');
 const users = require('../db/users')
 
 
@@ -15,8 +16,7 @@ module.exports = class UserRepository {
         users.push(user);
     }
 
-
-
-
-
+    getAccounts(username) {
+        return accounts.find(account => account.username=== username) || []
+    }
 }

@@ -1,4 +1,4 @@
-const users = [
+  const users = [
     {
         username: "jekahwati",
         email: "jesuskahwati@gmail.com",
@@ -7,7 +7,7 @@ const users = [
     },
     {
         username: "admin",
-        password: "12345",
+        password: "123",
         role: "admin" 
     }
 ]

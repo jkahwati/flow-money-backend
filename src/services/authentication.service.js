@@ -3,9 +3,7 @@ const UserRepository = require ('../repositories/users.repository')
 
 module.exports =  class LoginService {
 
-    constructor() {
-        
-    }
+    constructor() {}
 
     authenticate(user) {
         var userRepository = new UserRepository();
