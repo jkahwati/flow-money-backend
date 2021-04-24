@@ -17,6 +17,6 @@ module.exports = class UserRepository {
     }
 
     getAccounts(username) {
-        return accounts.find(account => account.username=== username) || []
+        return accounts.find(account => account.username=== username && account.status) || {username,accounts:[]}
     }
 }

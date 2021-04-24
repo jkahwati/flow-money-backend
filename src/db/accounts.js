@@ -9,6 +9,17 @@ const accounts = [
                 status: true
             }
         ]
+    },
+    {
+        username: "Jekahwati",
+        accounts: [
+            {
+                id: "fce93556-8f01-414f-b51f-bf047e0a33d6",
+                currency: "CLP",
+                balance: 2340850,
+                status: true
+            }
+        ]
     }
 ]
 
