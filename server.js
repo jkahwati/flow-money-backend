@@ -35,10 +35,26 @@ app.use(jsonErrorHandler)
 const healthRoute = require('./src/routes/health.routes');
 const loginRoute = require('./src/routes/login.routes');
 const userRoute = require('./src/routes/user.routes');
+const transactionRoute = require('./src/routes/transaction.routes');
+const mongo = require('mongodb');
 app.use(healthRoute);
 app.use(loginRoute);
 app.use(userRoute);
+app.use(transactionRoute);
 /* Routes config end */
+
+const mongoose = require('mongoose');
+mongoose.connect('mongodb+srv://jekahwati:nbC4Po9CMPxwLvu2@flow-money-cluster.tbmar.mongodb.net/flow-money-db?retryWrites=true&w=majority', {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false
+});
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log("MONGO IS CONNECTED")
+});
 
 app.listen(process.env.PORT  || 3001, function () {
   console.log('FLOW-MONEY is running on port 3001');

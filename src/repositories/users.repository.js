@@ -1,22 +1,37 @@
 const accounts = require('../db/accounts');
-const users = require('../db/users')
-
+const Users = require('../model/user.model')
+const Accounts = require('../model/account.model');
 
 module.exports = class UserRepository {
 
-    constructor() {
+    constructor() {}
+
+    async exist(user) {
+        const {username, password} = user;
+        return await Users.findOne({username, password}, { _id: 0 }).exec();
+    }
+    async sigUp(user) {
+        try {
+            await Users.create(user);
+        } catch (error) {
+            console.log("--->>>", error)
+        }
     }
 
-    exist(user) {
-        return users.some(userDb => {
-            return (userDb.username === user.username && userDb.password === user.password);
-        })
-    }
-    sigUp(user) {
-        users.push(user);
+    async getAccounts(username) {
+        try {
+            let accounts =  await Accounts.find({username}, { _id: 0 }).exec();
+            console.log(`${username} accounts: ${accounts}`)
+            return {accounts};
+        } catch (e) {
+            console.log(e);
+            return {message: e.message};
+        }
     }
 
-    getAccounts(username) {
-        return accounts.find(account => account.username=== username) || {username,accounts:[]}
+    getAccountByUserAndId(username,accountId) {
+        const account = accounts.find(account => account.username=== username)
+        return account.accounts.find(account => {account.id === accountId})
     }
+    
 }

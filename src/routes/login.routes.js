@@ -16,11 +16,11 @@ router.post('/login', (req,res) => {
     }
 });
 
-router.post('/sign-up', (req,res) => {
+router.post('/sign-up', async (req,res) => {
 
     var loginService = new LoginService();
     var user =  new User(req.body);
-    var response = loginService.signUp(user);
+    var response = await loginService.signUp(user);
     if (response.success) {
         res.status(200).send(response);
     } else {

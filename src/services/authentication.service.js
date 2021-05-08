@@ -6,7 +6,7 @@ module.exports =  class LoginService {
     constructor() {}
 
     authenticate(user) {
-        var userRepository = new UserRepository();
+        const userRepository = new UserRepository();
         if (userRepository.exist(user)) {
             return {success: true, message: "User successfully logged in"};
         } else {
@@ -14,14 +14,13 @@ module.exports =  class LoginService {
         }
     }
 
-    signUp(user) {
-        var userRepository = new UserRepository();
-        if (userRepository.exist(user)) {
+    async signUp(user) {
+        const userRepository = new UserRepository();
+        if (await userRepository.exist(user)) {
             return {success: false, message: "User already exist"};
         } else {
-            userRepository.sigUp(user);
+            await userRepository.sigUp(user);
             return {success: true, message: "User successfully registered"};
         }
     }
-
 }
