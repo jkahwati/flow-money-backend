@@ -8,7 +8,8 @@ module.exports = class UserRepository {
 
     async exist(user) {
         const {username, password} = user;
-        return await Users.findOne({username, password}, { _id: 0 }).exec();
+        const response = await Users.findOne({username, password}, { _id: 0 }).exec();
+        return response;
     }
     async sigUp(user) {
         try {

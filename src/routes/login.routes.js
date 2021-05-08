@@ -4,11 +4,11 @@ const LoginService = require('../services/authentication.service');
 const User = require('../model/user.model')
 
 
-router.post('/login', (req,res) => {
+router.post('/login', async (req,res) => {
 
     var loginService = new LoginService();
     var user =  new User(req.body);
-    var response = loginService.authenticate(user);
+    var response = await loginService.authenticate(user);
     if (response.success) {
         res.status(200).send(response);
     } else {

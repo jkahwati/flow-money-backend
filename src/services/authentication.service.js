@@ -5,9 +5,9 @@ module.exports =  class LoginService {
 
     constructor() {}
 
-    authenticate(user) {
+    async authenticate(user) {
         const userRepository = new UserRepository();
-        if (userRepository.exist(user)) {
+        if (await userRepository.exist(user)) {
             return {success: true, message: "User successfully logged in"};
         } else {
             return{success: false, message: "User not found"}
